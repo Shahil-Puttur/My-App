@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Daily Work - By Shahil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; }
+        body { background-color: #0a0a0f; color: white; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        #root { width: 100%; height: 100%; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .items-start { align-items: flex-start; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-1 { gap: 0.25rem; } .gap-2 { gap: 0.5rem; } .gap-3 { gap: 0.75rem; } .gap-4 { gap: 1rem; } .gap-6 { gap: 1.5rem; } .gap-8 { gap: 2rem; }
+        .p-1 { padding: 0.25rem; } .p-2 { padding: 0.5rem; } .p-3 { padding: 0.75rem; } .p-4 { padding: 1rem; } .p-6 { padding: 1.5rem; } .p-8 { padding: 2rem; }
+        .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; } .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; } .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .mb-2 { margin-bottom: 0.5rem; } .mb-3 { margin-bottom: 0.75rem; } .mb-4 { margin-bottom: 1rem; } .mb-6 { margin-bottom: 1.5rem; }
+        .mt-1 { margin-top: 0.25rem; } .mt-2 { margin-top: 0.5rem; } .mt-4 { margin-top: 1rem; } .mt-6 { margin-top: 1.5rem; } .mt-8 { margin-top: 2rem; }
+        .ml-2 { margin-left: 0.5rem; } .ml-auto { margin-left: auto; }
+        .w-full { width: 100%; } .h-full { height: 100%; } .h-screen { height: 100vh; }
+        .max-w-md { max-width: 28rem; } .max-w-2xl { max-width: 42rem; } .max-w-6xl { max-width: 72rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .rounded-full { border-radius: 9999px; } .rounded-xl { border-radius: 0.75rem; } .rounded-2xl { border-radius: 1rem; } .rounded-lg { border-radius: 0.5rem; } .rounded-md { border-radius: 0.375rem; }
+        .border { border: 1px solid; } .border-t { border-top: 1px solid; } .border-b { border-bottom: 1px solid; } .border-r { border-right: 1px solid; } .border-x { border-left: 1px solid; border-right: 1px solid; }
+        .border-white\/10 { border-color: rgba(255, 255, 255, 0.1); } .border-white\/20 { border-color: rgba(255, 255, 255, 0.2); } .border-blue-500\/30 { border-color: rgba(59, 130, 246, 0.3); } .border-blue-500\/50 { border-color: rgba(59, 130, 246, 0.5); } .border-green-500\/30 { border-color: rgba(34, 197, 94, 0.3); } .border-purple-500\/30 { border-color: rgba(168, 85, 247, 0.3); }
+        .text-white { color: white; } .text-gray-400 { color: rgb(156, 163, 175); } .text-gray-500 { color: rgb(107, 114, 128); } .text-blue-400 { color: rgb(96, 165, 250); } .text-blue-300 { color: rgb(147, 197, 253); } .text-green-400 { color: rgb(74, 222, 128); } .text-purple-400 { color: rgb(192, 132, 250); } .text-purple-300 { color: rgb(216, 180, 254); } .text-orange-400 { color: rgb(251, 146, 60); } .text-yellow-400 { color: rgb(250, 204, 21); } .text-yellow-200 { color: rgb(254, 240, 138); }
+        .bg-black { background-color: black; } .bg-black\/40 { background-color: rgba(0, 0, 0, 0.4); } .bg-black\/60 { background-color: rgba(0, 0, 0, 0.6); } .bg-black\/80 { background-color: rgba(0, 0, 0, 0.8); } .bg-white\/5 { background-color: rgba(255, 255, 255, 0.05); } .bg-white\/10 { background-color: rgba(255, 255, 255, 0.1); } .bg-white\/20 { background-color: rgba(255, 255, 255, 0.2); } .bg-blue-500 { background-color: rgb(59, 130, 246); } .bg-blue-600 { background-color: rgb(37, 99, 235); } .bg-blue-500\/10 { background-color: rgba(59, 130, 246, 0.1); } .bg-blue-500\/20 { background-color: rgba(59, 130, 246, 0.2); } .bg-purple-500 { background-color: rgb(168, 85, 247); } .bg-purple-600 { background-color: rgb(147, 51, 234); } .bg-purple-500\/20 { background-color: rgba(168, 85, 247, 0.2); } .bg-green-500\/20 { background-color: rgba(34, 197, 94, 0.2); } .bg-yellow-500 { background-color: rgb(234, 179, 8); } .bg-gray-800 { background-color: rgb(31, 41, 55); } .bg-gray-900\/90 { background-color: rgba(15, 23, 42, 0.9); }
+        .text-sm { font-size: 0.875rem; } .text-base { font-size: 1rem; } .text-lg { font-size: 1.125rem; } .text-xl { font-size: 1.25rem; } .text-2xl { font-size: 1.5rem; } .text-3xl { font-size: 1.875rem; } .text-4xl { font-size: 2.25rem; }
+        .font-medium { font-weight: 500; } .font-semibold { font-weight: 600; } .font-bold { font-weight: 700; }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } .line-clamp-4 { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+        .overflow-hidden { overflow: hidden; } .overflow-x-auto { overflow-x: auto; } .overflow-y-auto { overflow-y: auto; }
+        .absolute { position: absolute; } .relative { position: relative; } .fixed { position: fixed; }
+        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+        .top-0 { top: 0; } .bottom-0 { bottom: 0; } .left-0 { left: 0; } .right-0 { right: 0; } .top-1\/2 { top: 50%; } .left-1\/2 { left: 50%; }
+        .z-0 { z-index: 0; } .z-10 { z-index: 10; } .z-50 { z-index: 50; }
+        .opacity-0 { opacity: 0; } .opacity-30 { opacity: 0.3; } .opacity-50 { opacity: 0.5; }
+        .backdrop-blur-sm { backdrop-filter: blur(4px); } .backdrop-blur-md { backdrop-filter: blur(12px); } .backdrop-blur-xl { backdrop-filter: blur(24px); } .backdrop-blur-2xl { backdrop-filter: blur(40px); }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); } .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+        .transition-all { transition: all 0.3s ease; } .transition-colors { transition: color 0.3s ease, background-color 0.3s ease; }
+        .cursor-pointer { cursor: pointer; } .cursor-not-allowed { cursor: not-allowed; }
+        .pointer-events-none { pointer-events: none; }
+        .disabled\:opacity-50:disabled { opacity: 0.5; } .disabled\:pointer-events-none:disabled { pointer-events: none; }
+        .hover\:bg-white\/10:hover { background-color: rgba(255, 255, 255, 0.1); } .hover\:bg-white\/20:hover { background-color: rgba(255, 255, 255, 0.2); } .hover\:text-white:hover { color: white; } .hover\:opacity-100:hover { opacity: 1; } .hover\:opacity-70:hover { opacity: 0.7; }
+        .focus-visible\:outline-none:focus-visible { outline: none; } .focus-visible\:ring-2:focus-visible { box-shadow: 0 0 0 2px rgba(59, 130, 246, 1); }
+        .placeholder\:text-gray-400::placeholder { color: rgb(156, 163, 175); } .placeholder\:text-gray-500::placeholder { color: rgb(107, 114, 128); }
+        .grid { display: grid; } .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); } .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .col-span-1 { grid-column: span 1; } .col-span-2 { grid-column: span 2; } .col-span-full { grid-column: 1 / -1; }
+        .space-y-1 > * + * { margin-top: 0.25rem; } .space-y-2 > * + * { margin-top: 0.5rem; } .space-y-3 > * + * { margin-top: 0.75rem; } .space-y-4 > * + * { margin-top: 1rem; } .space-y-6 > * + * { margin-top: 1.5rem; } .space-y-8 > * + * { margin-top: 2rem; }
+        .whitespace-nowrap { white-space: nowrap; } .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .inline-flex { display: inline-flex; } .inline-block { display: inline-block; } .block { display: block; } .hidden { display: none; }
+        .min-h-\[100px\] { min-height: 100px; } .min-h-\[200px\] { min-height: 200px; } .min-h-\[300px\] { min-height: 300px; } .min-h-\[350px\] { min-height: 350px; } .min-h-\[500px\] { min-height: 500px; } .min-h-screen { min-height: 100vh; }
+        .h-4 { height: 1rem; } .h-6 { height: 1.5rem; } .h-8 { height: 2rem; } .h-10 { height: 2.5rem; } .h-12 { height: 3rem; } .h-14 { height: 3.5rem; } .h-16 { height: 4rem; } .h-20 { height: 5rem; } .h-32 { height: 8rem; } .h-40 { height: 10rem; }
+        .w-1 { width: 0.25rem; } .w-4 { width: 1rem; } .w-6 { width: 1.5rem; } .w-8 { width: 2rem; } .w-10 { width: 2.5rem; } .w-12 { width: 3rem; } .w-16 { width: 4rem; } .w-24 { width: 6rem; } .w-32 { width: 8rem; } .w-40 { width: 10rem; } .w-48 { width: 12rem; } .w-56 { width: 14rem; }
+        .pb-2 { padding-bottom: 0.5rem; } .pb-4 { padding-bottom: 1rem; } .pb-20 { padding-bottom: 5rem; } .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .pt-0 { padding-top: 0; }
+        .text-center { text-align: center; }
+        .select-none { user-select: none; }
+        .transform { transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); }
+        .scale-0 { --tw-scale-x: 0; --tw-scale-y: 0; } .scale-1 { --tw-scale-x: 1; --tw-scale-y: 1; } .scale-95 { --tw-scale-x: 0.95; --tw-scale-y: 0.95; }
+        .rotate-45 { --tw-rotate: 45deg; }
+        .-translate-x-1\/2 { --tw-translate-x: -50%; } .-translate-y-1\/2 { --tw-translate-y: -50%; } .-translate-x-1\/4 { --tw-translate-x: -25%; }
+        @media (max-width: 768px) { .md\:flex { display: flex; } .md\:hidden { display: none; } .md\:w-auto { width: auto; } .md\:p-8 { padding: 2rem; } .md\:pb-0 { padding-bottom: 0; } .md\:flex-row { flex-direction: row; } .md\:items-center { align-items: center; } .md\:gap-6 { gap: 1.5rem; } .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .md\:col-span-2 { grid-column: span 2; } .md\:col-span-3 { grid-column: span 3; } .md\:bottom-8 { bottom: 2rem; } .md\:right-8 { right: 2rem; } }
+        @media (max-width: 640px) { .sm\:flex { display: flex; } .sm\:flex-row { flex-direction: row; } .sm\:w-auto { width: auto; } .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 1024px) { .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .animate-spin { animation: spin 1s linear infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-0.5rem); } }
+        .animate-bounce { animation: bounce 1s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.8; } }
+        .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+        .bg-gradient-to-b { background-image: linear-gradient(to bottom, var(--tw-gradient-stops)); }
+        .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); }
+        .bg-gradient-to-t { background-image: linear-gradient(to top, var(--tw-gradient-stops)); }
+        .from-blue-400 { --tw-gradient-stops: rgb(96, 165, 250), var(--tw-gradient-to, rgba(96, 165, 250, 0)); }
+        .from-blue-500 { --tw-gradient-stops: rgb(59, 130, 246), var(--tw-gradient-to, rgba(59, 130, 246, 0)); }
+        .from-blue-600 { --tw-gradient-stops: rgb(37, 99, 235), var(--tw-gradient-to, rgba(37, 99, 235, 0)); }
+        .from-purple-400 { --tw-gradient-stops: rgb(192, 132, 250), var(--tw-gradient-to, rgba(192, 132, 250, 0)); }
+        .from-purple-600 { --tw-gradient-stops: rgb(147, 51, 234), var(--tw-gradient-to, rgba(147, 51, 234, 0)); }
+        .to-purple-400 { --tw-gradient-to: rgb(192, 132, 250); }
+        .to-purple-600 { --tw-gradient-to: rgb(147, 51, 234); }
+        .to-purple-500 { --tw-gradient-to: rgb(168, 85, 247); }
+        .to-cyan-600 { --tw-gradient-to: rgb(8, 145, 178); }
+        .to-transparent { --tw-gradient-to: transparent; }
+        .shadow-\[0_0_15px_rgba\(37\,99\,235\,0\.5\)\] { box-shadow: 0 0 15px rgba(37, 99, 235, 0.5); }
+        .shadow-\[0_0_20px_rgba\(59\,130\,246\,0\.4\)\] { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+        .shadow-\[0_0_30px_rgba\(59\,130\,246\,0\.15\)\] { box-shadow: 0 0 30px rgba(59, 130, 246, 0.15); }
+        .shadow-\[0_0_30px_rgba\(34\,197\,94\,0\.1\)\] { box-shadow: 0 0 30px rgba(34, 197, 94, 0.1); }
+        .shadow-\[0_0_30px_rgba\(59\,130\,246\,0\.3\)\] { box-shadow: 0 0 30px rgba(59, 130, 246, 0.3); }
+        .shadow-\[0_0_40px_rgba\(59\,130\,246\,0\.3\)\] { box-shadow: 0 0 40px rgba(59, 130, 246, 0.3); }
+        .shadow-\[0_0_50px_rgba\(59\,130\,246\,0\.15\)\] { box-shadow: 0 0 50px rgba(59, 130, 246, 0.15); }
+        .shadow-\[0_0_20px_rgba\(0\,210\,255\,0\.4\)\] { box-shadow: 0 0 20px rgba(0, 210, 255, 0.4); }
+        .shadow-\[0_0_10px_rgba\(255\,255\,150\,0\.5\)\] { box-shadow: 0 0 10px rgba(255, 255, 150, 0.5); }
+        .shadow-\[0_4px_30px_rgba\(0\,0\,0\,0\.1\)\] { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); }
+        .shadow-\[0_8px_32px_0_rgba\(0\,0\,0\,0\.3\)\] { box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); }
+        .shadow-\[inset_0_0_20px_rgba\(59\,130\,246\,0\.1\)\] { box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1); }
+        .app-container { display: flex; height: 100vh; width: 100%; background-color: #0a0a0f; color: white; overflow: hidden; user-select: none; }
+        .sidebar { display: none; flex-direction: column; width: 16rem; border-right: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(24px); position: relative; z-index: 10; }
+        @media (min-width: 768px) { .sidebar { display: flex; } }
+        .sidebar-header { display: flex; height: 5rem; align-items: center; padding: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .sidebar-logo { display: flex; align-items: center; gap: 0.75rem; }
+        .sidebar-logo-icon { display: flex; height: 2.5rem; width: 2.5rem; align-items: center; justify-content: center; border-radius: 0.75rem; background-image: linear-gradient(to bottom right, rgb(59, 130, 246), rgb(147, 51, 234)); box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); }
+        .sidebar-logo-text { display: flex; flex-direction: column; }
+        .sidebar-logo-title { font-size: 1.125rem; font-weight: 700; letter-spacing: -0.015em; background: linear-gradient(to right, rgb(96, 165, 250), rgb(192, 132, 250)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .sidebar-logo-subtitle { font-size: 0.625rem; color: rgb(156, 163, 175); text-transform: uppercase; letter-spacing: 0.05em; }
+        .sidebar-nav { flex: 1; overflow-y: auto; padding: 1.5rem 1rem; }
+        .nav-item { display: flex; align-items: center; gap: 0.75rem; border-radius: 0.75rem; padding: 0.75rem 1rem; font-size: 0.875rem; font-weight: 500; transition: all 0.3s ease; color: rgb(156, 163, 175); cursor: pointer; border: 1px solid transparent; }
+        .nav-item:hover { background-color: rgba(255, 255, 255, 0.05); color: white; }
+        .nav-item.active { background-color: rgba(59, 130, 246, 0.1); color: rgb(96, 165, 250); box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .sidebar-profile { padding: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .profile-card { display: flex; align-items: center; gap: 0.75rem; border-radius: 0.75rem; background-color: rgba(255, 255, 255, 0.05); padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .profile-avatar { position: relative; height: 2.5rem; width: 2.5rem; overflow: hidden; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.2); background-color: rgb(31, 41, 55); }
+        .profile-avatar img { height: 100%; width: 100%; object-fit: cover; }
+        .profile-info { display: flex; flex-direction: column; }
+        .profile-name { font-size: 0.875rem; font-weight: 500; color: white; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 6rem; }
+        .profile-level { font-size: 0.75rem; color: rgb(96, 165, 250); }
+        .profile-streak { margin-left: auto; display: flex; align-items: center; gap: 0.25rem; color: rgb(251, 146, 60); }
+        .profile-streak-value { font-size: 0.75rem; font-weight: 700; }
+        .main-content { position: relative; z-index: 10; display: flex; flex: 1; flex-direction: column; overflow: hidden; }
+        .content-area { flex: 1; overflow-y: auto; padding: 1rem; }
+        @media (min-width: 768px) { .content-area { padding: 2rem; } }
+        .content-wrapper { height: 100%; max-width: 72rem; margin-left: auto; margin-right: auto; }
+        .mobile-nav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; display: flex; height: 4rem; align-items: center; justify-content: space-around; border-top: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(24px); padding-bottom: env(safe-area-inset-bottom); }
+        @media (min-width: 768px) { .mobile-nav { display: none; } }
+        .mobile-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; gap: 0.25rem; color: rgb(107, 114, 128); font-size: 0.625rem; font-weight: 500; cursor: pointer; transition: color 0.3s ease; }
+        .mobile-nav-item.active { color: rgb(96, 165, 250); }
+        .pet-assistant { position: fixed; bottom: 6rem; right: 1.5rem; z-index: 50; }
+        @media (min-width: 768px) { .pet-assistant { bottom: 2rem; right: 2rem; } }
+        .pet-button { position: relative; display: flex; height: 4rem; width: 4rem; cursor: pointer; align-items: center; justify-content: center; border-radius: 9999px; border: 2px solid rgba(96, 165, 250, 0.5); background-image: linear-gradient(to bottom right, rgb(37, 99, 235), rgb(147, 51, 234)); box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); transition: all 0.3s ease; font-size: 1.875rem; }
+        .pet-button:hover { transform: scale(1.1); }
+        .pet-button:active { transform: scale(0.9); }
+        .pet-level-badge { position: absolute; bottom: -0.5rem; right: -0.5rem; display: flex; height: 1.5rem; width: 1.5rem; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.2); background-color: rgb(234, 179, 8); font-size: 0.75rem; font-weight: 700; color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .pet-message { position: absolute; bottom: 100%; right: 0; margin-bottom: 1rem; width: 12rem; border-radius: 1rem; border: 1px solid rgba(59, 130, 246, 0.3); background-color: rgba(0, 0, 0, 0.8); padding: 0.75rem; font-size: 0.875rem; color: white; box-shadow: 0 0 30px rgba(59, 130, 246, 0.3); backdrop-filter: blur(24px); display: none; }
+        .pet-message.active { display: block; }
+        .pet-message-close { position: absolute; top: -0.5rem; right: -0.5rem; border-radius: 9999px; background-color: rgb(31, 41, 55); padding: 0.125rem; color: rgb(156, 163, 175); cursor: pointer; transition: color 0.3s ease; border: none; }
+        .pet-message-close:hover { color: white; }
+        .pet-message-tail { position: absolute; bottom: -1.25rem; right: 1.5rem; height: 1rem; width: 1rem; transform: rotate(45deg); border-bottom: 1px solid rgba(59, 130, 246, 0.3); border-right: 1px solid rgba(59, 130, 246, 0.3); background-color: rgba(0, 0, 0, 0.8); }
+        .page { display: none; animation: fadeIn 0.3s ease; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px) blur(4px); } to { opacity: 1; transform: translateY(0) blur(0); } }
+        .background-glow { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+        .glow-blue { position: absolute; top: -10%; left: -10%; width: 40%; height: 40%; border-radius: 9999px; background-color: rgba(59, 130, 246, 0.2); filter: blur(120px); }
+        .glow-purple { position: absolute; bottom: -10%; right: -10%; width: 40%; height: 40%; border-radius: 9999px; background-color: rgba(168, 85, 247, 0.2); filter: blur(120px); }
+        .page-title { font-size: 1.875rem; font-weight: 700; letter-spacing: -0.015em; color: white; display: flex; align-items: center; gap: 0.75rem; }
+        .page-subtitle { color: rgb(156, 163, 175); }
+        .task-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        @media (min-width: 768px) { .task-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 1024px) { .task-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        .task-card { position: relative; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(24px); border-radius: 1rem; transition: all 0.5s ease; }
+        .task-card:hover { border-color: rgba(59, 130, 246, 0.3); box-shadow: 0 0 30px rgba(59, 130, 246, 0.15); }
+        .task-card.completed { border-color: rgba(34, 197, 94, 0.3); box-shadow: 0 0 30px rgba(34, 197, 94, 0.1); }
+        .task-card-bg { position: absolute; inset: 0; z-index: 0; }
+        .task-card-bg img { height: 100%; width: 100%; object-fit: cover; opacity: 0.3; mix-blend-mode: overlay; }
+        .task-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, black, rgba(0, 0, 0, 0.8), transparent); }
+        .task-card-content { position: relative; z-index: 10; display: flex; height: 100%; flex-direction: column; justify-content: space-between; padding: 1.5rem; }
+        .task-card-header { display: flex; align-items: flex-start; justify-content: space-between; }
+        .task-card-title { font-size: 1.25rem; font-weight: 700; color: white; }
+        .task-badge { margin-top: 0.25rem; display: inline-flex; align-items: center; border-radius: 9999px; background-color: rgba(59, 130, 246, 0.2); padding: 0.25rem 0.625rem; font-size: 0.75rem; font-weight: 500; color: rgb(147, 197, 253); border: 1px solid rgba(59, 130, 246, 0.3); }
+        .task-badge.extra { background-color: rgba(168, 85, 247, 0.2); color: rgb(216, 180, 254); border-color: rgba(168, 85, 247, 0.3); }
+        .task-badge.completed { background-color: rgba(34, 197, 94, 0.2); color: rgb(134, 239, 172); border-color: rgba(34, 197, 94, 0.3); }
+        .task-complete-icon { border-radius: 9999px; background-color: rgba(34, 197, 94, 0.2); padding: 0.5rem; color: rgb(74, 222, 128); border: 1px solid rgba(34, 197, 94, 0.3); }
+        .task-form { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.375rem; }
+        .form-label { display: flex; align-items: center; font-size: 0.75rem; font-weight: 500; color: rgb(156, 163, 175); }
+        .form-input { display: flex; height: 2.5rem; width: 100%; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); background-color: rgba(255, 255, 255, 0.05); padding: 0.5rem 0.75rem; font-size: 0.875rem; color: white; transition: all 0.3s ease; backdrop-filter: blur(4px); font-family: inherit; }
+        .form-input:focus { outline: none; box-shadow: 0 0 0 2px rgba(59, 130, 246, 1); border-color: transparent; }
+        .form-input::placeholder { color: rgb(156, 163, 175); }
+        .form-textarea { display: flex; min-height: 5rem; width: 100%; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.5); padding: 0.75rem; font-size: 0.875rem; color: white; font-family: inherit; resize: none; transition: all 0.3s ease; }
+        .form-textarea:focus { outline: none; box-shadow: 0 0 0 2px rgba(59, 130, 246, 1); border-color: transparent; }
+        .form-textarea::placeholder { color: rgb(107, 114, 128); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; border-radius: 0.75rem; font-size: 0.875rem; font-weight: 500; transition: all 0.3s ease; cursor: pointer; border: none; padding: 0.625rem 1rem; height: 2.5rem; }
+        .btn:hover { transform: scale(1.02); }
+        .btn:active { transform: scale(0.98); }
+        .btn:disabled { pointer-events: none; opacity: 0.5; }
+        .btn-primary { background-color: rgb(37, 99, 235); color: white; box-shadow: 0 0 15px rgba(37, 99, 235, 0.5); }
+        .btn-primary:hover:not(:disabled) { background-color: rgb(29, 78, 216); }
+        .btn-gradient { background-image: linear-gradient(to right, rgb(37, 99, 235), rgb(147, 51, 234)); color: white; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+        .btn-gradient:hover:not(:disabled) { background-image: linear-gradient(to right, rgb(29, 78, 216), rgb(126, 34, 206)); }
+        .btn-outline { border: 1px solid rgba(59, 130, 246, 0.5); background-color: transparent; color: rgb(96, 165, 250); }
+        .btn-outline:hover:not(:disabled) { background-color: rgba(59, 130, 246, 0.1); }
+        .btn-glass { background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); color: white; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); }
+        .btn-glass:hover:not(:disabled) { background-color: rgba(255, 255, 255, 0.2); }
+        .btn-lg { height: 2.75rem; padding: 0.75rem 2rem; }
+        .btn-sm { height: 2.25rem; padding: 0.5rem 0.75rem; font-size: 0.75rem; }
+        .btn-icon { height: 2.5rem; width: 2.5rem; padding: 0; }
+        .modal-backdrop { position: fixed; inset: 0; z-index: 50; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); display: none; }
+        .modal-backdrop.active { display: block; }
+        .modal { position: fixed; left: 50%; top: 50%; z-index: 50; width: 100%; max-width: 28rem; transform: translate(-50%, -50%); padding: 1rem; display: none; }
+        .modal.active { display: block; }
+        .modal-content { overflow: hidden; border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.2); background-color: rgba(17, 24, 39, 0.9); box-shadow: 0 0 40px rgba(59, 130, 246, 0.3); backdrop-filter: blur(24px); }
+        .modal-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 1rem; }
+        .modal-title { font-size: 1.125rem; font-weight: 600; color: white; }
+        .modal-close { border-radius: 9999px; padding: 0.25rem; color: rgb(156, 163, 175); cursor: pointer; transition: color 0.3s ease; background: none; border: none; }
+        .modal-close:hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
+        .modal-body { padding: 1rem; }
+        .card { border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(255, 255, 255, 0.05); color: white; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); backdrop-filter: blur(24px); overflow: hidden; }
+        .card-header { display: flex; flex-direction: column; gap: 0.375rem; padding: 1.5rem; }
+        .card-title { font-size: 1.5rem; font-weight: 600; line-height: 1; letter-spacing: -0.015em; }
+        .card-content { padding: 1.5rem; padding-top: 0; }
+        .stat-card { border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(24px); border-radius: 1rem; overflow: hidden; position: relative; transition: all 0.3s ease; }
+        .stat-card-bg { position: absolute; inset: 0; background-image: linear-gradient(to bottom right, var(--gradient-color), transparent); opacity: 0.5; pointer-events: none; }
+        .stat-card-content { padding: 1.5rem; position: relative; z-index: 10; display: flex; flex-direction: column; height: 100%; justify-content: space-between; }
+        .stat-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+        .stat-card-label { color: rgb(156, 163, 175); font-weight: 500; }
+        .stat-card-icon { padding: 0.5rem; border-radius: 0.75rem; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05); }
+        .stat-card-value { font-size: 1.875rem; font-weight: 700; color: white; margin-bottom: 0.25rem; }
+        .stat-card-subtitle { font-size: 0.875rem; color: rgb(107, 114, 128); }
+        .knowledge-card { height: 100%; border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(24px); border-radius: 1rem; transition: all 0.3s ease; }
+        .knowledge-card:hover { border-color: rgba(59, 130, 246, 0.3); box-shadow: 0 0 30px rgba(59, 130, 246, 0.1); }
+        .knowledge-card-content { padding: 1.5rem; display: flex; flex-direction: column; height: 100%; }
+        .knowledge-card-header { margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between; }
+        .knowledge-card-category { display: inline-flex; align-items: center; border-radius: 9999px; background-color: rgba(59, 130, 246, 0.1); padding: 0.25rem 0.625rem; font-size: 0.75rem; font-weight: 500; color: rgb(96, 165, 250); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .knowledge-card-date { font-size: 0.75rem; color: rgb(107, 114, 128); }
+        .knowledge-card-question { font-size: 1.125rem; font-weight: 600; color: white; margin-bottom: 0.75rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .knowledge-card-answer { font-size: 0.875rem; color: rgb(156, 163, 175); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }
+        .building-container { position: relative; width: 100%; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.05); background: linear-gradient(to bottom, rgba(30, 58, 138, 0.2), rgba(0, 0, 0, 0.6)); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; overflow: hidden; transition: all 0.7s ease; height: 350px; }
+        .building-container.long-view { height: 500px; }
+        .building-stars { position: absolute; inset: 0; opacity: 0.3; pointer-events: none; }
+        .building-star { position: absolute; width: 0.25rem; height: 0.25rem; background-color: white; border-radius: 9999px; }
+        .building-area { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; width: 100%; padding-bottom: 1rem; z-index: 10; transition: transform 1s ease-out; }
+        .building-floor { position: relative; width: 12rem; height: 3.5rem; border-left: 1px solid rgba(255, 255, 255, 0.2); border-right: 1px solid rgba(255, 255, 255, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0 1rem; }
+        .building-window { width: 1.5rem; height: 2rem; border-radius: 0.25rem; background-color: rgba(0, 0, 0, 0.4); }
+        .building-window.lit { background-color: rgba(254, 240, 138, 0.8); box-shadow: 0 0 10px rgba(255, 255, 150, 0.5); }
+        .building-floor-number { position: absolute; left: -2rem; font-size: 0.75rem; font-family: monospace; color: rgba(255, 255, 255, 0.3); }
+        .building-lobby { position: relative; width: 14rem; height: 5rem; background-color: rgb(31, 41, 55); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 0.5rem 0.5rem 0 0; box-shadow: 0 0 1px rgba(0, 0, 0, 0.5); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 0.5rem; z-index: 20; }
+        .building-lobby-door { width: 4rem; height: 3rem; background-color: rgba(96, 165, 250, 0.2); border: 1px solid rgba(96, 165, 250, 0.4); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; }
+        .building-lobby-door-inner { width: 100%; height: 100%; background: linear-gradient(to top, rgba(59, 130, 246, 0.4), transparent); }
+        .building-lobby-text { position: absolute; top: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.7); }
+        .building-ground { position: absolute; bottom: 0; width: 200%; height: 1rem; background-color: rgba(34, 139, 34, 0.25); border-top: 1px solid rgba(34, 197, 94, 0.3); transform: translateX(-25%); }
+        .onboarding-container { display: flex; min-height: 100vh; align-items: center; justify-content: center; background-color: #0a0a0f; padding: 1rem; color: white; user-select: none; }
+        .onboarding-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+        .onboarding-card { position: relative; z-index: 10; width: 100%; max-width: 42rem; border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.4); padding: 2rem; box-shadow: 0 0 50px rgba(59, 130, 246, 0.15); backdrop-filter: blur(40px); border-radius: 1rem; }
+        .onboarding-header { margin-bottom: 2rem; text-align: center; }
+        .onboarding-title { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.015em; background: linear-gradient(to right, rgb(96, 165, 250), rgb(192, 132, 250)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .onboarding-subtitle { margin-top: 0.5rem; color: rgb(156, 163, 175); }
+        .avatar-upload { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .avatar-box { position: relative; display: flex; height: 8rem; width: 8rem; cursor: pointer; align-items: center; justify-content: center; overflow: hidden; border-radius: 9999px; border: 2px dashed rgba(255, 255, 255, 0.2); background-color: rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
+        .avatar-box:hover { background-color: rgba(255, 255, 255, 0.1); }
+        .avatar-box img { height: 100%; width: 100%; object-fit: cover; }
+        .avatar-placeholder { display: flex; flex-direction: column; align-items: center; color: rgb(156, 163, 175); }
+        .avatar-placeholder-text { margin-top: 0.5rem; font-size: 0.75rem; }
+        .avatar-input { position: absolute; inset: 0; cursor: pointer; opacity: 0; }
+        .avatar-hint { font-size: 0.75rem; color: rgb(107, 114, 128); }
+        .form-grid { display: grid; gap: 1rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        @media (min-width: 768px) { .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+        .form-field-label { font-size: 0.875rem; font-weight: 500; color: rgb(209, 213, 219); }
+        .task-template-grid { display: grid; gap: 1rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        @media (min-width: 768px) { .task-template-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        .task-template-card { position: relative; overflow: hidden; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .task-template-card img { height: 8rem; width: 100%; object-fit: cover; opacity: 0.5; transition: opacity 0.3s ease; }
+        .task-template-card:hover img { opacity: 0.7; }
+        .task-template-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); padding: 1rem; display: flex; flex-direction: column; justify-content: flex-end; }
+        .task-template-name { font-weight: 600; color: white; }
+        .task-template-time { font-size: 0.75rem; color: rgb(96, 165, 250); }
+        .task-template-add { display: flex; height: 8rem; flex-direction: column; align-items: center; justify-content: center; border-radius: 0.75rem; border: 2px dashed rgba(255, 255, 255, 0.2); background-color: rgba(255, 255, 255, 0.05); color: rgb(156, 163, 175); cursor: pointer; transition: all 0.3s ease; }
+        .task-template-add:hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
+        .task-template-add-icon { margin-bottom: 0.5rem; }
+        .task-template-add-text { font-weight: 500; }
+        .chart-container { height: 300px; width: 100%; }
+        .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5rem 1rem; color: rgb(107, 114, 128); }
+        .empty-state-icon { margin-bottom: 1rem; opacity: 0.2; }
+        .filter-pills { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; }
+        .filter-pill { white-space: nowrap; border-radius: 9999px; padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; transition: all 0.3s ease; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(255, 255, 255, 0.05); color: rgb(156, 163, 175); }
+        .filter-pill:hover { background-color: rgba(255, 255, 255, 0.1); }
+        .filter-pill.active { background-color: rgba(59, 130, 246, 0.2); color: rgb(96, 165, 250); border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
+        .search-input-wrapper { position: relative; flex: 1; }
+        .search-icon { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: rgb(156, 163, 175); pointer-events: none; }
+        .search-input { padding-left: 2.5rem; background-color: rgba(0, 0, 0, 0.4); border-color: rgba(255, 255, 255, 0.1); }
+        .report-type-selector { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; }
+        .report-type-btn { white-space: nowrap; border-radius: 9999px; padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; transition: all 0.3s ease; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(255, 255, 255, 0.05); color: rgb(156, 163, 175); text-transform: capitalize; }
+        .report-type-btn:hover { background-color: rgba(255, 255, 255, 0.1); }
+        .report-type-btn.active { background-color: rgba(59, 130, 246, 0.2); color: rgb(96, 165, 250); border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
+        .profile-edit-mode .form-input { background-color: rgba(0, 0, 0, 0.5); border-color: rgba(255, 255, 255, 0.1); }
+        .profile-avatar-edit { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.6); color: white; opacity: 0; transition: opacity 0.3s ease; cursor: pointer; }
+        .profile-avatar:hover .profile-avatar-edit { opacity: 1; }
+        .profile-avatar-edit-input { display: none; }
+        .consistency-header { display: flex; flex-direction: column; gap: 1rem; }
+        @media (min-width: 768px) { .consistency-header { flex-direction: row; justify-content: space-between; align-items: flex-start; } }
+        .consistency-title { font-size: 1.5rem; font-weight: 700; color: white; display: flex; align-items: center; gap: 0.5rem; }
+        .consistency-subtitle { font-size: 0.875rem; color: rgb(156, 163, 175); margin-top: 0.25rem; }
+        .consistency-buttons { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; }
+        @media (min-width: 640px) { .consistency-buttons { flex-direction: row; } }
+        @media (min-width: 768px) { .consistency-buttons { width: auto; } }
+        .consistency-button { flex: 1; }
+        .btn-build { background-image: linear-gradient(to right, rgb(37, 99, 235), rgb(8, 145, 178)); color: white; border: none; box-shadow: 0 0 20px rgba(0, 210, 255, 0.4); }
+        .btn-build:hover:not(:disabled) { background-image: linear-gradient(to right, rgb(29, 78, 216), rgb(6, 120, 150)); }
+        .btn-build:disabled { background-color: rgb(31, 41, 55); color: rgb(156, 163, 175); border-color: rgb(55, 65, 81); box-shadow: none; }
+        .profile-stats-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        @media (min-width: 768px) { .profile-stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        .profile-avatar-card { grid-column: span 1; border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(24px); border-radius: 1rem; overflow: hidden; position: relative; }
+        .profile-avatar-card-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(59, 130, 246, 0.2), transparent); pointer-events: none; }
+        .profile-avatar-card-content { padding: 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 10; }
+        .profile-avatar-large { position: relative; margin-bottom: 1.5rem; height: 10rem; width: 10rem; overflow: hidden; border-radius: 9999px; border: 4px solid rgba(59, 130, 246, 0.5); box-shadow: 0 0 40px rgba(59, 130, 246, 0.4); }
+        .profile-avatar-large img { height: 100%; width: 100%; object-fit: cover; }
+        .profile-avatar-large-placeholder { display: flex; height: 100%; width: 100%; align-items: center; justify-content: center; background-color: rgb(31, 41, 55); color: rgb(156, 163, 175); }
+        .profile-avatar-large-edit { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.6); color: white; opacity: 0; transition: opacity 0.3s ease; cursor: pointer; }
+        .profile-avatar-large:hover .profile-avatar-large-edit { opacity: 1; }
+        .profile-avatar-large-edit-input { display: none; }
+        .profile-name-display { font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 0.25rem; }
+        .profile-class-display { color: rgb(96, 165, 250); font-weight: 500; margin-bottom: 1rem; }
+        .profile-city-display { display: flex; align-items: center; gap: 0.5rem; color: rgb(156, 163, 175); font-size: 0.875rem; }
+        .profile-stats-grid-2 { display: grid; gap: 1.5rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        @media (min-width: 640px) { .profile-stats-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 768px) { .profile-stats-grid-2 { grid-column: span 2; grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        .consistency-building-card { border: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(24px); border-radius: 1rem; overflow: hidden; margin-top: 2rem; }
+        .consistency-building-card-content { padding: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // ============ UTILITY FUNCTIONS ============
+        function generateId() { return Math.random().toString(36).substring(2, 9); }
+        function getTodayStr() { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; }
+        function compressImage(file, maxWidth = 500, maxHeight = 500, quality = 0.7) { return new Promise((resolve, reject) => { const reader = new FileReader(); reader.readAsDataURL(file); reader.onload = (event) => { const img = new Image(); img.src = event.target.result; img.onload = () => { const canvas = document.createElement('canvas'); let width = img.width; let height = img.height; if (width > height) { if (width > maxWidth) { height = Math.round((height * maxWidth) / width); width = maxWidth; } } else { if (height > maxHeight) { width = Math.round((width * maxHeight) / height); height = maxHeight; } } canvas.width = width; canvas.height = height; const ctx = canvas.getContext('2d'); if (ctx) { ctx.drawImage(img, 0, 0, width, height); resolve(canvas.toDataURL('image/jpeg', quality)); } else { resolve(event.target.result); } }; img.onerror = (error) => reject(error); }; reader.onerror = (error) => reject(error); }); }
+
+        // ============ STATE MANAGEMENT ============
+        class Store {
+            constructor() {
+                this.state = { profile: null, taskTemplates: [], dailyTasks: [], knowledge: [], xp: 0, level: 1, streak: 0, lastActiveDate: null, buildingFloors: 0, lastBuildDate: null, isOnboarded: false };
+                this.listeners = [];
+                this.loadFromStorage();
+            }
+            loadFromStorage() { try { const stored = localStorage.getItem('daily-work-storage'); if (stored) { const data = JSON.parse(stored); this.state = { ...this.state, ...data }; } } catch (e) { console.error('Failed to load from storage:', e); } }
+            saveToStorage() { try { localStorage.setItem('daily-work-storage', JSON.stringify(this.state)); } catch (e) { console.error('Failed to save to storage:', e); } }
+            subscribe(listener) { this.listeners.push(listener); return () => { this.listeners = this.listeners.filter(l => l !== listener); }; }
+            notify() { this.saveToStorage(); this.listeners.forEach(listener => listener(this.state)); }
+            setState(updates) { this.state = { ...this.state, ...updates }; this.notify(); }
+            setProfile(profile) { this.setState({ profile }); }
+            addTaskTemplate(task) { const newTask = { ...task, id: generateId() }; this.setState({ taskTemplates: [...this.state.taskTemplates, newTask] }); }
+            completeTask(id, timeSpent, description) { const updatedTasks = this.state.dailyTasks.map(t => t.id === id ? { ...t, completed: true, timeSpent, description } : t); const task = this.state.dailyTasks.find(t => t.id === id); let newXp = this.state.xp; let newLevel = this.state.level; if (task && !task.completed) { newXp += 50 + Math.floor(timeSpent / 10) * 5; newLevel = Math.floor(newXp / 1000) + 1; } this.setState({ dailyTasks: updatedTasks, xp: newXp, level: newLevel }); }
+            addExtraTask(task) { const newTask = { ...task, id: generateId(), completed: false, isExtra: true, date: getTodayStr() }; this.setState({ dailyTasks: [...this.state.dailyTasks, newTask] }); }
+            syncDailyTasks() { const today = getTodayStr(); const todaysTasks = this.state.dailyTasks.filter(t => t.date === today); const missingTemplates = this.state.taskTemplates.filter(template => !todaysTasks.some(t => t.templateId === template.id)); if (missingTemplates.length === 0) return; const newTasks = missingTemplates.map(template => ({ id: generateId(), templateId: template.id, name: template.name, timeSpent: 0, description: '', date: today, completed: false, isExtra: false, image: template.image, minTime: template.minTime })); this.setState({ dailyTasks: [...this.state.dailyTasks, ...newTasks] }); }
+            addKnowledge(item) { const newItem = { ...item, id: generateId(), date: getTodayStr() }; this.setState({ knowledge: [...this.state.knowledge, newItem] }); }
+            buildFloor() { const today = getTodayStr(); if (this.state.lastBuildDate === today) return; this.setState({ buildingFloors: this.state.buildingFloors + 1, lastBuildDate: today }); }
+            checkBuildingCollapse() { if (!this.state.lastBuildDate) return; const today = getTodayStr(); if (this.state.lastBuildDate === today) return; const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1); const yesterdayStr = `${yesterday.getFullYear()}-${String(yesterday.getMonth() + 1).padStart(2, '0')}-${String(yesterday.getDate()).padStart(2, '0')}`; if (this.state.lastBuildDate !== yesterdayStr) { this.setState({ buildingFloors: 0, lastBuildDate: null }); } }
+            checkStreak() { const today = getTodayStr(); if (this.state.lastActiveDate === today) return; const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1); const yesterdayStr = `${yesterday.getFullYear()}-${String(yesterday.getMonth() + 1).padStart(2, '0')}-${String(yesterday.getDate()).padStart(2, '0')}`; let newStreak = this.state.streak; if (this.state.lastActiveDate === yesterdayStr) { newStreak += 1; } else if (this.state.lastActiveDate !== today) { newStreak = 1; } this.setState({ streak: newStreak, lastActiveDate: today }); }
+            completeOnboarding() { this.setState({ isOnboarded: true }); }
+        }
+
+        const store = new Store();
+        let currentPage = 'dashboard';
+        let currentState = { ...store.state };
+        let onboardingStep = 1;
+        let profileData = { name: '', city: '', class: '', goal: '', avatar: '' };
+        let taskData = { name: '', minTime: '', image: '' };
+        let selectedKnowledgeCategory = 'All';
+        let knowledgeSearchQuery = '';
+        let selectedReportType = 'weekly';
+        let petTips = ["Stay focused! You're doing great.", "Remember to take a 5-minute break.", "Consistency is the key to success!", "Drink some water 💧", "You're leveling up fast!", "Keep that streak alive 🔥", "Learning something new today?"];
+        let petMessageTimeout;
+
+        function updateState() { currentState = { ...store.state }; render(); }
+        store.subscribe(updateState);
+
+        function render() { const root = document.getElementById('root'); if (!currentState.isOnboarded) { root.innerHTML = renderOnboarding(); attachOnboardingListeners(); } else { root.innerHTML = renderApp(); attachAppListeners(); } }
+
+        function renderOnboarding() {
+            return `<div class="onboarding-container"><div class="onboarding-bg"><div class="glow-blue"></div><div class="glow-purple"></div></div><div class="onboarding-card"><div class="onboarding-header"><h1 class="onboarding-title">${onboardingStep === 1 ? 'Welcome to Daily Work' : 'Set Your Daily Goals'}</h1><p class="onboarding-subtitle">${onboardingStep === 1 ? "Let's set up your premium profile." : 'Add the tasks you want to accomplish every day.'}</p></div>${onboardingStep === 1 ? `<div class="space-y-6"><div class="avatar-upload"><div class="avatar-box" id="avatarBox">${profileData.avatar ? `<img src="${profileData.avatar}" alt="Avatar">` : '<div class="avatar-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><span class="avatar-placeholder-text">Avatar Image</span></div>'}<input type="file" id="avatarInput" class="avatar-input" accept="image/*"></div><p class="avatar-hint">Upload an image (no background preferred)</p></div><div class="form-grid"><div class="form-field"><label class="form-field-label">Name</label><input type="text" id="nameInput" class="form-input" placeholder="Shahil" value="${profileData.name}"></div><div class="form-field"><label class="form-field-label">City</label><input type="text" id="cityInput" class="form-input" placeholder="Mumbai" value="${profileData.city}"></div><div class="form-field"><label class="form-field-label">Class / Profession</label><input type="text" id="classInput" class="form-input" placeholder="B.Tech CS" value="${profileData.class}"></div><div class="form-field"><label class="form-field-label">Main Goal</label><input type="text" id="goalInput" class="form-input" placeholder="Become a DevOps Engineer" value="${profileData.goal}"></div></div><button class="btn btn-primary btn-lg w-full" id="continueBtn">Continue<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 0.5rem;"><polyline points="9 18 15 12 9 6"></polyline></svg></button></div>` : `<div class="space-y-6"><div class="task-template-grid" id="taskTemplateGrid">${currentState.taskTemplates.map(task => `<div class="task-template-card"><img src="${task.image}" alt="${task.name}"><div class="task-template-overlay"><div class="task-template-name">${task.name}</div><div class="task-template-time">${task.minTime} mins minimum</div></div></div>`).join('')}<div class="task-template-add" id="addTaskBtn"><div class="task-template-add-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div><span class="task-template-add-text">Add Daily Work</span></div></div><button class="btn btn-primary btn-lg w-full" id="startBtn" ${currentState.taskTemplates.length === 0 ? 'disabled' : ''}>Start My Journey<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 0.5rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></button></div><div id="addTaskModal" class="modal-backdrop"><div class="modal"><div class="modal-content"><div class="modal-header"><h2 class="modal-title">Add Daily Task</h2><button class="modal-close" id="closeTaskModal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button></div><div class="modal-body"><div class="space-y-4"><div class="relative flex h-40 w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border-2 border-dashed border-white/20 bg-white/5 hover:bg-white/10 transition-colors" id="taskImageBox">${taskData.image ? `<img src="${taskData.image}" alt="Preview" style="height: 100%; width: 100%; object-fit: cover;">` : '<div class="flex flex-col items-center text-gray-400"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><span class="mt-2 text-sm">Upload 16:9 Image</span></div>'}<input type="file" id="taskImageInput" class="absolute inset-0 cursor-pointer opacity-0" accept="image/*"></div><div class="space-y-2"><label class="text-sm font-medium text-gray-300">Task Name</label><input type="text" id="taskNameInput" class="form-input" placeholder="e.g., DevOps Learning" value="${taskData.name}"></div><div class="space-y-2"><label class="text-sm font-medium text-gray-300">Minimum Time (minutes)</label><input type="number" id="minTimeInput" class="form-input" placeholder="e.g., 30" value="${taskData.minTime}"></div><button class="btn btn-primary w-full mt-4" id="saveTaskBtn">Save Task</button></div></div></div></div>`}</div></div>`;
+        }
+
+        function renderApp() {
+            const today = getTodayStr();
+            const todaysTasks = currentState.dailyTasks.filter(t => t.date === today);
+            return `<div class="app-container"><div class="background-glow"><div class="glow-blue"></div><div class="glow-purple"></div></div><aside class="sidebar"><div class="sidebar-header"><div class="sidebar-logo"><div class="sidebar-logo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><div class="sidebar-logo-text"><span class="sidebar-logo-title">Daily Work</span><span class="sidebar-logo-subtitle">By Shahil</span></div></div></div><nav class="sidebar-nav"><div class="nav-item ${currentPage === 'dashboard' ? 'active' : ''}" data-page="dashboard"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>Dashboard</div><div class="nav-item ${currentPage === 'knowledge' ? 'active' : ''}" data-page="knowledge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>Knowledge</div><div class="nav-item ${currentPage === 'reports' ? 'active' : ''}" data-page="reports"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Reports</div><div class="nav-item ${currentPage === 'profile' ? 'active' : ''}" data-page="profile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Profile</div></nav><div class="sidebar-profile"><div class="profile-card"><div class="profile-avatar">${currentState.profile?.avatarImage ? `<img src="${currentState.profile.avatarImage}" alt="Avatar">` : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>'}</div><div class="profile-info"><span class="profile-name">${currentState.profile?.name || 'User'}</span><span class="profile-level">Lvl ${currentState.level} • ${currentState.xp} XP</span></div><div class="profile-streak"><span class="profile-streak-value">${currentState.streak}</span><span>🔥</span></div></div></div></aside><main class="main-content"><div class="content-area"><div class="content-wrapper">${currentPage === 'dashboard' ? renderDashboard(todaysTasks) : currentPage === 'knowledge' ? renderKnowledge() : currentPage === 'reports' ? renderReports() : renderProfile()}</div></div></main><nav class="mobile-nav pb-safe"><div class="mobile-nav-item ${currentPage === 'dashboard' ? 'active' : ''}" data-page="dashboard"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span>Dashboard</span></div><div class="mobile-nav-item ${currentPage === 'knowledge' ? 'active' : ''}" data-page="knowledge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>Knowledge</span></div><div class="mobile-nav-item ${currentPage === 'reports' ? 'active' : ''}" data-page="reports"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Reports</span></div><div class="mobile-nav-item ${currentPage === 'profile' ? 'active' : ''}" data-page="profile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Profile</span></div></nav><div class="pet-assistant"><div class="pet-message" id="petMessage"><p id="petMessageText"></p><button class="pet-message-close" id="petMessageClose"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button><div class="pet-message-tail"></div></div><div class="pet-button" id="petButton"><span>🐦</span><div class="pet-level-badge">${currentState.level}</div></div></div><div id="extraTaskModal" class="modal-backdrop"><div class="modal"><div class="modal-content"><div class="modal-header"><h2 class="modal-title">Add Extra Task</h2><button class="modal-close" id="closeExtraModal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button></div><div class="modal-body"><div class="space-y-4"><div class="space-y-2"><label class="text-sm font-medium text-gray-300">Task Name</label><input type="text" id="extraTaskName" class="form-input" placeholder="e.g., Read a book"></div><div class="space-y-2"><label class="text-sm font-medium text-gray-300">Time Spent (minutes)</label><input type="number" id="extraTaskTime" class="form-input" placeholder="e.g., 45"></div><div class="space-y-2"><label class="text-sm font-medium text-gray-300">What I Learned / Did</label><textarea id="extraTaskDesc" class="form-textarea" placeholder="Describe your achievement..."></textarea></div><button class="btn btn-primary w-full mt-4" id="addExtraBtn">Add & Complete</button></div></div></div></div></div></div>`;
+        }
+
+        function renderDashboard(todaysTasks) {
+            return `<div class="space-y-8 pb-20 md:pb-0"><div class="flex flex-col md:flex-row md:items-center justify-between gap-4"><div><h1 class="page-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>Today's Missions</h1><p class="page-subtitle">Conquer your day, one task at a time.</p></div><button class="btn btn-glass w-full md:w-auto" id="addExtraTaskBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>Add Extra Task</button></div><div class="task-grid">${todaysTasks.map((task, index) => renderTaskCard(task, index)).join('')}</div>${todaysTasks.length === 0 ? '<div class="empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="empty-state-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><p>No tasks for today. Create some task templates first!</p></div>' : ''}</div>`;
+        }
+
+        function renderTaskCard(task, index) {
+            return `<div class="task-card ${task.completed ? 'completed' : ''}"><div class="task-card-bg">${task.image ? `<img src="${task.image}" alt="${task.name}">` : ''}<div class="task-card-overlay"></div></div><div class="task-card-content"><div><div class="task-card-header"><div><h3 class="task-card-title">${task.name}</h3>${task.isExtra ? '<span class="task-badge extra">Extra Task</span>' : `<span class="task-badge">Min: ${task.minTime} mins</span>`}</div>${task.completed ? '<div class="task-complete-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>' : ''}</div></div><div class="task-form">${!task.completed ? `<div class="form-group"><label class="form-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.375rem;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Time Spent (mins)</label><input type="number" class="form-input task-time-input" data-task-id="${task.id}" placeholder="e.g., 45" value=""></div><div class="form-group"><label class="form-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.375rem;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>What I Learned</label><textarea class="form-textarea task-desc-input" data-task-id="${task.id}" placeholder="Briefly describe..." style="min-height: 5rem;"></textarea></div><button class="btn btn-gradient w-full task-complete-btn" data-task-id="${task.id}">I DID ✅</button>` : `<div class="rounded-xl bg-white/5 p-4 border border-white/10 backdrop-blur-md"><div class="mb-2 flex items-center text-sm font-medium text-green-400"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${task.timeSpent} mins completed</div><p class="text-sm text-gray-300 italic">"${task.description}"</p></div>`}</div></div></div>`;
+        }
+
+        function renderKnowledge() {
+            const categories = ['All', ...Array.from(new Set(currentState.knowledge.map(k => k.category)))];
+            const filteredKnowledge = currentState.knowledge.filter(k => {
+                const matchesSearch = k.question.toLowerCase().includes(knowledgeSearchQuery.toLowerCase()) || k.answer.toLowerCase().includes(knowledgeSearchQuery.toLowerCase());
+                const matchesCategory = selectedKnowledgeCategory === 'All' || k.category === selectedKnowledgeCategory;
+                return matchesSearch && matchesCategory;
+            });
+            return `<div class="space-y-8 pb-20 md:pb-0"><div class="flex flex-col md:flex-row md:items-center justify-between gap-4"><div><h1 class="page-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>Learned Questions</h1><p class="page-subtitle">Your personal knowledge repository.</p></div><div class="flex gap-3"><button class="btn btn-outline" id="exportPdfBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Export PDF</button><button class="btn btn-primary" id="addKnowledgeBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>Add Knowledge</button></div></div><div class="flex flex-col md:flex-row gap-4"><div class="search-input-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><input type="text" id="knowledgeSearch" class="form-input search-input" placeholder="Search questions or answers..." value="${knowledgeSearchQuery}"></div><div class="filter-pills hide-scrollbar">${categories.map(cat => `<button class="filter-pill ${selectedKnowledgeCategory === cat ? 'active' : ''}" data-category="${cat}">${cat}</button>`).join('')}</div></div><div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">${filteredKnowledge.map(item => `<div class="knowledge-card"><div class="knowledge-card-content"><div class="knowledge-card-header"><span class="knowledge-card-category">${item.category}</span><span class="knowledge-card-date">${item.date}</span></div><h3 class="knowledge-card-question">${item.question}</h3><p class="knowledge-card-answer">${item.answer}</p></div></div>`).join('')}${filteredKnowledge.length === 0 ? '<div class="col-span-full empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="empty-state-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><p>No knowledge found. Start adding some!</p></div>' : ''}</div><div id="knowledgeModal" class="modal-backdrop"><div class="modal"><div class="modal-content"><div class="modal-header"><h2 class="modal-title">Add New Knowledge</h2><button class="modal-close" id="closeKnowledgeModal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button></div><div class="modal-body"><div class="space-y-4"><div class="space-y-2"><label class="text-sm font-medium text-gray-300">Category</label><input type="text" id="knowledgeCategoryInput" class="form-input" placeholder="e.g., Business, Tech, React"></div><div class="space-y-2"><label class="text-sm font-medium text-gray-300">Questions & Answers</label><textarea id="knowledgeQaInput" class="form-textarea" placeholder="Paste multiple questions and answers:\n\nQ1. What is CPU?\nA1. Central Processing Unit\n\nQ2. What is GPS?\nA2. Global Positioning System"></textarea></div><button class="btn btn-primary w-full mt-4" id="saveKnowledgeBtn">Save Knowledge</button></div></div></div></div></div>`;
+        }
+
+        function renderReports() {
+            const days = selectedReportType === 'weekly' ? 7 : selectedReportType === 'monthly' ? 30 : 90;
+            const data = [];
+            for (let i = days - 1; i >= 0; i--) {
+                const d = new Date();
+                d.setDate(d.getDate() - i);
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+                const displayDate = `${d.getDate()}/${d.getMonth() + 1}`;
+                const tasksOnDate = currentState.dailyTasks.filter(t => t.date === dateStr && t.completed);
+                const totalTime = tasksOnDate.reduce((sum, t) => sum + (t.timeSpent || 0), 0);
+                data.push({ date: displayDate, fullDate: dateStr, tasks: tasksOnDate.length, time: totalTime });
+            }
+            const totalTimeSpent = data.reduce((sum, d) => sum + d.time, 0);
+            const totalTasksDone = data.reduce((sum, d) => sum + d.tasks, 0);
+            return `<div class="space-y-8 pb-20 md:pb-0"><div class="flex flex-col md:flex-row md:items-center justify-between gap-4"><div><h1 class="page-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Analytics & Reports</h1><p class="page-subtitle">Track your progress and consistency.</p></div><button class="btn btn-outline" id="exportReportPdfBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Export PDF</button></div><div class="report-type-selector"><button class="report-type-btn ${selectedReportType === 'weekly' ? 'active' : ''}" data-report-type="weekly">Weekly Report</button><button class="report-type-btn ${selectedReportType === 'monthly' ? 'active' : ''}" data-report-type="monthly">Monthly Report</button><button class="report-type-btn ${selectedReportType === 'all' ? 'active' : ''}" data-report-type="all">90-Day Report</button></div><div id="report-content" class="space-y-6"><div class="grid gap-6 md:grid-cols-2"><div class="stat-card"><div class="stat-card-content"><div class="stat-card-header"><h3 class="stat-card-label">Total Time Spent</h3><div class="stat-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: rgb(96, 165, 250);"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div></div><div class="stat-card-value">${Math.floor(totalTimeSpent / 60)}h ${totalTimeSpent % 60}m</div><p class="stat-card-subtitle">Total minutes tracked</p></div></div><div class="stat-card"><div class="stat-card-content"><div class="stat-card-header"><h3 class="stat-card-label">Tasks Completed</h3><div class="stat-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: rgb(192, 132, 250);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div></div><div class="stat-card-value">${totalTasksDone}</div><p class="stat-card-subtitle">Tasks completed</p></div></div></div></div></div>`;
+        }
+
+        function renderProfile() {
+            const completedTasks = currentState.dailyTasks.filter(t => t.completed).length;
+            const totalTasks = currentState.dailyTasks.length;
+            const completionRate = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+            return `<div class="space-y-8 pb-20 md:pb-0"><div class="flex flex-col md:flex-row md:items-center justify-between gap-4"><div><h1 class="page-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Player Profile</h1><p class="page-subtitle">Your stats, achievements, and identity.</p></div></div><div class="profile-stats-grid"><div class="profile-avatar-card"><div class="profile-avatar-card-bg"></div><div class="profile-avatar-card-content"><div class="profile-avatar-large">${currentState.profile?.avatarImage ? `<img src="${currentState.profile.avatarImage}" alt="Avatar">` : '<div class="profile-avatar-large-placeholder"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>'}</div><h2 class="profile-name-display">${currentState.profile?.name || 'User'}</h2><p class="profile-class-display">${currentState.profile?.className || 'Not set'}</p><div class="profile-city-display"><span>📍 ${currentState.profile?.city || 'Not set'}</span></div></div></div><div class="profile-stats-grid-2"><div class="stat-card"><div class="stat-card-content"><div class="stat-card-header"><h3 class="stat-card-label">Level & XP</h3><div class="stat-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: rgb(250, 204, 21);"><polygon points="12 2 15.09 10.26 24 10.35 17.77 16.01 19.85 24.29 12 18.77 4.15 24.29 6.23 16.01 0 10.35 8.91 10.26 12 2"></polygon></svg></div></div><div class="stat-card-value">Lvl ${currentState.level}</div><p class="stat-card-subtitle">${currentState.xp} Total XP</p></div></div><div class="stat-card"><div class="stat-card-content"><div class="stat-card-header"><h3 class="stat-card-label">Consistency Streak</h3><div class="stat-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: rgb(251, 146, 60);"><path d="M6.5 1h11l3.5 6v12a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V7z"></path><path d="M9 16h6"></path><path d="M9 12h6"></path></svg></div></div><div class="stat-card-value">${currentState.streak} Days</div><p class="stat-card-subtitle">Keep the fire burning!</p></div></div><div class="stat-card"><div class="stat-card-content"><div class="stat-card-header"><h3 class="stat-card-label">Completion Rate</h3><div class="stat-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: rgb(74, 222, 128);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg></div></div><div class="stat-card-value">${completionRate}%</div><p class="stat-card-subtitle">${completedTasks} of ${totalTasks} tasks done</p></div></div><div class="stat-card"><div class="stat-card-content"><div class="stat-card-header"><h3 class="stat-card-label">Main Goal</h3><div class="stat-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: rgb(192, 132, 250);"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 12 12 15 15"></polyline></svg></div></div><div class="stat-card-value" style="font-size: 1.125rem;">${currentState.profile?.goal || 'Not set'}</div><p class="stat-card-subtitle">Your ultimate objective</p></div></div></div></div>`;
+        }
+
+        function attachOnboardingListeners() {
+            if (onboardingStep === 1) {
+                document.getElementById('avatarInput')?.addEventListener('change', async (e) => { const file = e.target.files?.[0]; if (file) { profileData.avatar = await compressImage(file); render(); } });
+                document.getElementById('nameInput')?.addEventListener('input', (e) => { profileData.name = e.target.value; });
+                document.getElementById('cityInput')?.addEventListener('input', (e) => { profileData.city = e.target.value; });
+                document.getElementById('classInput')?.addEventListener('input', (e) => { profileData.class = e.target.value; });
+                document.getElementById('goalInput')?.addEventListener('input', (e) => { profileData.goal = e.target.value; });
+                document.getElementById('continueBtn')?.addEventListener('click', () => {
+                    if (profileData.name && profileData.city && profileData.class && profileData.goal) {
+                        store.setProfile({ name: profileData.name, city: profileData.city, className: profileData.class, goal: profileData.goal, avatarImage: profileData.avatar });
+                        onboardingStep = 2;
+                        render();
+                    }
+                });
+            } else {
+                document.getElementById('addTaskBtn')?.addEventListener('click', () => { document.getElementById('addTaskModal').classList.add('active'); });
+                document.getElementById('closeTaskModal')?.addEventListener('click', () => { document.getElementById('addTaskModal').classList.remove('active'); });
+                document.getElementById('taskImageInput')?.addEventListener('change', async (e) => { const file = e.target.files?.[0]; if (file) { taskData.image = await compressImage(file); render(); } });
+                document.getElementById('taskNameInput')?.addEventListener('input', (e) => { taskData.name = e.target.value; });
+                document.getElementById('minTimeInput')?.addEventListener('input', (e) => { taskData.minTime = e.target.value; });
+                document.getElementById('saveTaskBtn')?.addEventListener('click', () => {
+                    if (taskData.name && taskData.minTime && taskData.image) {
+                        store.addTaskTemplate({ name: taskData.name, minTime: parseInt(taskData.minTime), image: taskData.image });
+                        taskData = { name: '', minTime: '', image: '' };
+                        render();
+                    }
+                });
+                document.getElementById('startBtn')?.addEventListener('click', () => { if (currentState.taskTemplates.length > 0) { store.completeOnboarding(); } });
+            }
+        }
+
+        function attachAppListeners() {
+            store.checkStreak();
+            store.syncDailyTasks();
+            document.querySelectorAll('[data-page]').forEach(el => { el.addEventListener('click', () => { currentPage = el.dataset.page; render(); }); });
+            document.getElementById('addExtraTaskBtn')?.addEventListener('click', () => { document.getElementById('extraTaskModal').classList.add('active'); });
+            document.getElementById('closeExtraModal')?.addEventListener('click', () => { document.getElementById('extraTaskModal').classList.remove('active'); });
+            document.getElementById('addExtraBtn')?.addEventListener('click', () => {
+                const name = document.getElementById('extraTaskName')?.value;
+                const time = document.getElementById('extraTaskTime')?.value;
+                const desc = document.getElementById('extraTaskDesc')?.value;
+                if (name && time && desc) {
+                    store.addExtraTask({ name, timeSpent: parseInt(time), description: desc, image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600' });
+                    document.getElementById('extraTaskName').value = '';
+                    document.getElementById('extraTaskTime').value = '';
+                    document.getElementById('extraTaskDesc').value = '';
+                    document.getElementById('extraTaskModal').classList.remove('active');
+                }
+            });
+            document.querySelectorAll('.task-complete-btn').forEach(btn => { btn.addEventListener('click', () => {
+                const taskId = btn.dataset.taskId;
+                const timeInput = document.querySelector(`.task-time-input[data-task-id="${taskId}"]`);
+                const descInput = document.querySelector(`.task-desc-input[data-task-id="${taskId}"]`);
+                const time = parseInt(timeInput?.value) || 0;
+                const desc = descInput?.value || '';
+                const task = currentState.dailyTasks.find(t => t.id === taskId);
+                if (time && desc && (!task?.minTime || time >= task.minTime)) {
+                    store.completeTask(taskId, time, desc);
+                    store.buildFloor();
+                    confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#3b82f6', '#8b5cf6', '#ffffff'] });
+                    confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#3b82f6', '#8b5cf6', '#ffffff'] });
+                } else {
+                    alert(task?.minTime ? `Please spend at least ${task.minTime} minutes on this task.` : 'Please fill in all fields.');
+                }
+            }); });
+            document.getElementById('addKnowledgeBtn')?.addEventListener('click', () => { document.getElementById('knowledgeModal').classList.add('active'); });
+            document.getElementById('closeKnowledgeModal')?.addEventListener('click', () => { document.getElementById('knowledgeModal').classList.remove('active'); });
+            document.getElementById('knowledgeSearch')?.addEventListener('input', (e) => { knowledgeSearchQuery = e.target.value; render(); });
+            document.querySelectorAll('[data-category]').forEach(btn => { btn.addEventListener('click', () => { selectedKnowledgeCategory = btn.dataset.category; render(); }); });
+            document.getElementById('saveKnowledgeBtn')?.addEventListener('click', () => {
+                const category = document.getElementById('knowledgeCategoryInput')?.value;
+                const qaText = document.getElementById('knowledgeQaInput')?.value;
+                if (category && qaText) {
+                    const lines = qaText.split('\n').map(line => line.trim()).filter(line => line);
+                    const items = [];
+                    let currentQ = '', currentA = '';
+                    lines.forEach(line => {
+                        const qMatch = line.match(/^(?:Q|Question)\s*\d*[\.\:\-]?\s*(.*)/i);
+                        const aMatch = line.match(/^(?:A|Answer)\s*\d*[\.\:\-]?\s*(.*)/i);
+                        if (qMatch) { if (currentQ && currentA) { items.push({ question: currentQ, answer: currentA }); currentA = ''; } currentQ = qMatch[1].trim(); } else if (aMatch) { currentA = aMatch[1].trim(); } else { if (currentA) { currentA += '\n' + line; } else if (currentQ) { currentQ += '\n' + line; } else { currentQ = line; } }
+                    });
+                    if (currentQ && currentA) { items.push({ question: currentQ, answer: currentA }); } else if (currentQ && !currentA && items.length === 0) { items.push({ question: currentQ, answer: '' }); }
+                    if (items.length > 0) { items.forEach(item => { store.addKnowledge({ category, question: item.question, answer: item.answer }); }); } else { store.addKnowledge({ category, question: 'Note', answer: qaText }); }
+                    document.getElementById('knowledgeCategoryInput').value = '';
+                    document.getElementById('knowledgeQaInput').value = '';
+                    document.getElementById('knowledgeModal').classList.remove('active');
+                }
+            });
+            document.querySelectorAll('[data-report-type]').forEach(btn => { btn.addEventListener('click', () => { selectedReportType = btn.dataset.reportType; render(); }); });
+            document.getElementById('petButton')?.addEventListener('click', () => {
+                const msg = petTips[Math.floor(Math.random() * petTips.length)];
+                const petMessage = document.getElementById('petMessage');
+                document.getElementById('petMessageText').textContent = msg;
+                petMessage.classList.add('active');
+                clearTimeout(petMessageTimeout);
+                petMessageTimeout = setTimeout(() => { petMessage.classList.remove('active'); }, 5000);
+            });
+            document.getElementById('petMessageClose')?.addEventListener('click', () => { document.getElementById('petMessage').classList.remove('active'); });
+            setInterval(() => { if (Math.random() > 0.7) { document.getElementById('petButton')?.click(); } }, 30000);
+        }
+
+        render();
+    </script>
+</body>
+</html>
